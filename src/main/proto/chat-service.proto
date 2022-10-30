@@ -1,0 +1,13 @@
+syntax = "proto3";
+package service.grpc;
+
+option java_package = "com.proto.service";
+option java_multiple_files = true;
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "entities.proto";
+
+service ChatService{
+  rpc sendMessage(MessageRequest) returns (MessageResponse) {};
+  rpc readMessages(ReadMessageRequest) returns (stream MessageResponse) {};
+}
